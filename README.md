@@ -2,7 +2,7 @@
 multithreaded client/server socket based chat/game application in javafx
 
 ![](demo.gif)
-![Screenshot](demo2.png)
+![Screenshot](demo2.PNG)
 
 # Dependencies  
 
