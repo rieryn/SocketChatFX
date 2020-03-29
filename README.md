@@ -1,6 +1,8 @@
 # SocketChatFX
 multithreaded client/server socket based chat/game application in javafx
 
+![](demo.gif)
+![](demo2.png)
 
 # Dependencies  
 
@@ -9,3 +11,6 @@ multithreaded client/server socket based chat/game application in javafx
 > jfoenix-9.0.8
 >
 >java jdk 11+
+
+# Contact
+particlechef@gmail.com
