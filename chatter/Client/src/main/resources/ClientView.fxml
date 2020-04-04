@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="         -fx-background-size: 1200 900;         -fx-background-radius: 30;         -fx-border-radius: 30;         -fx-border-width:5;         -fx-background-color:#e6f0fb; " xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ClientViewController">
+   <top>
+      <VBox prefHeight="54.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="bannerLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="86.0" prefWidth="809.0" style="-fx-background-color: #ffd497;" text=":logo: Welcome to chatter! Banner file:image some stuff" textFill="#6f6e6e" VBox.vgrow="ALWAYS" />
+            <HBox prefHeight="46.0" prefWidth="800.0" style="-fx-background-color: #FFB6C1;" />
+            <MenuBar fx:id="menubar" opacity="0.69" prefHeight="11.0" prefWidth="800.0" style="-fx-background-color: #fffade;">
+              <menus>
+                <Menu fx:id="fileMenu" mnemonicParsing="false" text="File">
+                  <items>
+                        <MenuItem fx:id="btAddFile" mnemonicParsing="false" onAction="#btSendFile" text="Send File..." />
+                        <MenuItem fx:id="btAddImage" mnemonicParsing="false" text="Send Image..." />
+                        <MenuItem fx:id="btSaveChat" mnemonicParsing="false" text="Save chatlog" />
+                    <MenuItem fx:id="btLogout" mnemonicParsing="false" onAction="#logout" text="logout..." />
+                  </items>
+                </Menu>
+                <Menu fx:id="optionMenu" mnemonicParsing="false" text="Options">
+                  <items>
+                        <MenuItem fx:id="btProfile" mnemonicParsing="false" text="Change Icon" />
+                        <MenuItem fx:id="btSettings" mnemonicParsing="false" text="Settings" />
+                  </items>
+                </Menu>
+                  <Menu fx:id="gameMenu" mnemonicParsing="false" text="Games">
+                    <items>
+                      <MenuItem fx:id="btBattleships" mnemonicParsing="false" text="Battleships" />
+                    </items>
+                  </Menu>
+                  <Menu fx:id="musicMenu" mnemonicParsing="false" text="Music">
+                    <items>
+                        <MenuItem fx:id="btPlayMusic" onAction="#setBtPlayMusic" mnemonicParsing="false" text="Play/Pause" />
+                      <MenuItem fx:id="btMuteMusic" onAction="#setBtMuteMusic" mnemonicParsing="false" text="Mute" />
+                        <MenuItem fx:id="btAddMusic" mnemonicParsing="false" text="Play from file..." />
+                    </items>
+                  </Menu>
+                  <Menu fx:id="toolMenu" mnemonicParsing="false" text="Tools">
+                    <items>
+                      <MenuItem fx:id="btScheduler" mnemonicParsing="false" text="Scheduler" />
+                    </items>
+                  </Menu>
+                <Menu fx:id="aboutMenu" mnemonicParsing="false" text="About">
+                  <items>
+                    <MenuItem fx:id="btAbout" mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </VBox>
+   </top>
+   <right>
+      <VBox maxHeight="1.7976931348623157E308" prefHeight="534.0" prefWidth="134.0" BorderPane.alignment="CENTER">
+         <children>
+            <ListView fx:id="userView" maxHeight="1.7976931348623157E308" prefHeight="534.0" prefWidth="92.0" style="-fx-background-color: #daf9dc;" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+   </right>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="BOTTOM_CENTER" style="-fx-background-color:#e6f0fb;">
+         <children>
+            <ListView fx:id="chatView" prefHeight="583.0" prefWidth="470.0" style="-fx-background-color:#e6f0fb;" VBox.vgrow="ALWAYS" />
+            <HBox alignment="CENTER" prefHeight="7.0" prefWidth="470.0" style="-fx-background-color: #F0FFF0;">
+               <children>
+                  <Button fx:id="addButton" mnemonicParsing="false" onAction="#btSendFile" prefHeight="31.0" prefWidth="37.0" style="-fx-background-color: #F5FFFA; -fx-background-radius: 5;" text="+" />
+                  <JFXTextArea fx:id="messageField" focusColor="#eaffcc" prefHeight="12.0" prefWidth="369.0" promptText="Type message..." style="-fx-background-radius: 40; -fx-border-radius: 40;" unFocusColor="#fcffc4" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="btSend" alignment="CENTER" mnemonicParsing="false" onAction="#btSendMessage" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: #AFEEEE; -fx-border-radius: 50; -fx-background-radius: 50;" text="Send" textFill="#464646" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <left>
+      <VBox maxHeight="1.7976931348623157E308" prefHeight="534.0" prefWidth="182.0" BorderPane.alignment="CENTER">
+         <children>
+            <ListView fx:id="channelView" maxHeight="1.7976931348623157E308" prefHeight="454.0" prefWidth="178.0" VBox.vgrow="ALWAYS" />
+            <HBox prefHeight="58.0" prefWidth="186.0">
+               <children>
+                  <ImageView fx:id="userIcon" fitHeight="80.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/8.PNG" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="usernameField" alignment="CENTER" prefHeight="31.0" prefWidth="96.0" style="-fx-background-color: #FFF5EE;" text="Username" />
+                        <HBox alignment="CENTER" prefHeight="18.0" prefWidth="96.0" style="-fx-background-color: #FFF0F5;">
+                           <children>
+                              <ComboBox fx:id="statusMenu" prefHeight="18.0" prefWidth="79.0" promptText="Away" style="-fx-background-color: #FFF0F5;" />
+                              <Circle fx:id="statusIndicator" fill="#ffaa55" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </HBox>
+                        <TextField fx:id="statusField" onAction="#setStatus" prefHeight="34.0" prefWidth="96.0" promptText="set status" style="-fx-background-color: #FFF0F5;">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </left>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="0.0" prefWidth="800.0" style="-fx-background-color: #F0F8FF;" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="12.0" prefWidth="129.0" text="chatter (ver:0.101)">
+               <font>
+                  <Font size="8.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="12.0" prefWidth="188.0" HBox.hgrow="ALWAYS" />
+            <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="93.0" text="Online:  " textAlignment="CENTER">
+               <font>
+                  <Font size="8.0" />
+               </font>
+            </Label>
+            <Circle fx:id="connectionIndicator" fill="#deff96" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+            <HBox prefHeight="12.0" prefWidth="135.0" HBox.hgrow="ALWAYS" />
+            <Label alignment="CENTER_RIGHT" prefHeight="12.0" prefWidth="78.0" text="   Connected to:">
+               <font>
+                  <Font size="8.0" />
+               </font>
+            </Label>
+            <Label fx:id="hostnameLabel" alignment="CENTER_RIGHT" prefHeight="12.0" prefWidth="70.0" text="hostname">
+               <font>
+                  <Font size="8.0" />
+               </font>
+            </Label>
+            <Label fx:id="portLabel" prefHeight="12.0" prefWidth="72.0" text="port">
+               <font>
+                  <Font size="8.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
